@@ -1,0 +1,105 @@
+@font-face {
+  font-family: 'HelveticaNeueItalic';
+  src: url('../fonts/helvetica_italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('../fonts/helvetica.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root{
+    --primary-color-1: #5d00bf;
+    --primary-color-2: #fff200;
+}
+
+.top-banner {
+    width: 960px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 70px;
+    border: 1px var(--primary-color-1) solid;
+    width: 960px;
+}
+
+nav ul a {
+    text-decoration: none;
+    text-transform: uppercase;
+        color: var(--primary-color-1);
+}
+
+nav ul li {
+    text-decoration: none;
+    padding: 14px 0;
+}
+
+.section-1 {
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-1 h1 {
+    font-size: 48px;
+    color: var(--primary-color-1);
+    text-transform: uppercase;
+    font-family: 'HelveticaNeueItalic';
+    margin: 0;
+    line-height: .9;
+    margin-top: 50px;
+}
+
+.section-1 h1 span {
+    font-size: 24px;
+    color: var(--primary-color-1);
+    text-transform: uppercase;
+}
+
+.section-2 {
+    justify-content: center;
+    text-align: center;
+    background-color: var(--primary-color-1);
+    padding: 20px;
+    width: 960px;
+}
+
+.section-2 h2 {
+    font-family: 'HelveticaNeue';
+    font-size: 24px;
+    text-transform: uppercase;
+    color: var(--primary-color-2);
+}
+
+.section-2 p {
+    color: #fff;
+}
+
+.yellow-button {
+    text-align: center;
+    background-color: #fff200;
+    display: block;
+    width: 140px;
+    padding: 13px 20px;
+    border-radius: 50px;
+    margin: 30px 0;
+}
+
+.yellow-button a {
+    text-decoration: none;
+    color: var(--primary-color-1);
+    text-transform: uppercase;
+    font-family: 'HelveticaNeue';
+}
+
+.yellow-banner {
+    text-align: center;
+    justify-content: center;
+}
