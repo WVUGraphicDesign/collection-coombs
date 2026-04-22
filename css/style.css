@@ -33,6 +33,30 @@
     }
 }
 
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity:0;
+    }
+}
+
+
+@keyframes loadRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(1000deg); }
+}
+
 .source-code-pro {
   font-family: "Source Code Pro", monospace;
   font-optical-sizing: auto;
@@ -93,8 +117,8 @@ nav ul li {
     margin: 0;
     margin-top: -30px;
     line-height: .9;
-    animation: fadeIn1 3s forwards;
-    animation-delay: 1s;
+    animation: fadeIn1 1s forwards;
+    animation-delay: .66s;
 }
 
 .section-1 h2 {
@@ -106,8 +130,8 @@ nav ul li {
     margin: 0;
     line-height: .9;
     margin-top: 50px;
-    animation: fadeIn1 3s forwards;
-    animation-delay: .5s;
+    animation: fadeIn1 1s forwards;
+    animation-delay: .33s;
 }
 
 .section-2 {
@@ -136,7 +160,10 @@ nav ul li {
     background-color: var(--primary-color-2);
     display: block;
     width: 140px;
-    padding: 13px 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 17px;
+    padding-bottom: 13px;
     border-radius: 50px;
     margin: 20px auto;
 }
@@ -148,14 +175,21 @@ nav ul li {
     font-family: 'HelveticaNeue';
 }
 
+.yellow-button:hover {
+    background-color: #fff;
+}
+
 .purple-button {
     text-align: center;
     background-color: var(--primary-color-1);
     display: block;
-    width: 210px;
-    padding: 13px 20px;
+    width: 290px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 17px;
+    padding-bottom: 13px;
     border-radius: 50px;
-    margin: 20px auto;
+    margin: 20px auto 60px auto;
 }
 
 .purple-button a {
@@ -163,6 +197,14 @@ nav ul li {
     color: var(--primary-color-2);
     text-transform: uppercase;
     font-family: 'HelveticaNeue';
+}
+
+.purple-button:hover {
+    background-color: var(--primary-color-2);
+}
+
+.purple-button:hover a {
+    color: var(--primary-color-1);
 }
 
 .yellow-banner {
@@ -184,6 +226,7 @@ nav ul li {
 .more-row {
     display: flex;
     justify-content: space-between;
+    margin-left: 25px;
 }
 
 .console-square {
@@ -199,8 +242,8 @@ nav ul li {
     margin: auto;
     padding: auto;
     position: relative;
-    left: 25px;
-    top: -5px;
+    left: 12px;
+    top: 20px;
     transition: .25s;
 }
 
@@ -214,8 +257,15 @@ nav ul li {
     font-size: 18px;
     text-transform: uppercase;
     position: relative;
-    left: 15px;
-    top: -30px;
+    left: 10px;
+    top: -5px;
+}
+
+.console-square h3 span {
+    font-family: 'helveticaNeue';
+    font-size: 15px;
+    text-transform: uppercase;
+    position: relative;
 }
 
 .console-square h4 {
@@ -224,8 +274,203 @@ nav ul li {
     font-size: 13px;
     text-transform: uppercase;
     position: relative;
+    left: 10px;
+    top: -25px;
+}
+
+.console-square a {
+    color: #000;
+    position: relative;
     left: 15px;
-    top: -50px;
+    top: -30px;
+    text-decoration: none;
+}
+
+.console-square-2 {
+    opacity: 0;
+    width: 140px;
+    height: 140px;
+    background-color: var(--primary-color-2);
+    margin: 40px auto;
+    border-radius: 25px;
+    animation: fadeIn1 1s forwards;
+    animation-delay: 1.99s;
+}
+
+.console-square-2 img {
+    width: 105px;
+    margin: auto;
+    padding: auto;
+    position: relative;
+    left: 16px;
+    top: -3px;
+    transition: .25s;
+}
+
+.console-square-2 img:hover {
+    transition: .25s;
+    scale: 1.15;
+}
+
+.console-square-2 h3 {
+    font-family: 'helveticaNeue';
+    font-size: 10px;
+    text-transform: uppercase;
+    position: relative;
+    left: 10px;
+    top: -15px;
+}
+
+.console-square-2 h3 span {
+    font-family: 'helveticaNeue';
+    font-size: 8.5px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.console-square-2 h4 {
+    font-family: 'Source Code Pro';
+    font-weight: 400;
+    font-size: 10px;
+    text-transform: uppercase;
+    position: relative;
+    left: 10px;
+    top: -30px;
+}
+
+.console-square-2 a {
+    color: #000;
+    position: relative;
+    text-decoration: none;
+}
+
+.purple-text-box {
+    color: #fff;
+    background-color: var(--primary-color-1);
+    padding: 20px 35px;
+    line-height: 1.5em;
+    font-family: 'Metropolis';
+    border-radius: 25px;
+}
+
+.page-heading {
+    opacity: 0;
+    position: relative;
+    top: 30px;
+    left: 120px;
+    margin-bottom: 50px;
+    font-family: 'HelveticaNeue';
+    color: var(--primary-color-1);
+    text-transform: uppercase;
+    font-size: 12px;
+    animation: fadeIn1 1s forwards;
+    animation-delay: 1.33s;
+}
+
+.collection-page {
+    display: flex;
+}
+
+.console-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 180px);
+    padding-bottom: 80px;
+    margin-left: 100px;
+}
+
+.console-collection-right .console-square-2 {
+    margin-bottom: -10px;
+}
+
+.console-collection-left {
+    border: solid 1px var(--primary-color-1);
+    margin-top: -17px;
+}
+
+.console-collection-left p {
+    font-family: 'Source Code Pro';
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.sort-heading {
+    padding-right: 20px;
+    border: 1px solid var(--primary-color-1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 0px;
+    background-color: var(--primary-color-1);
+    text-align: center;
+}
+
+.sort {
+    font-family: 'Source Code Pro';
+    text-transform: uppercase;
+    line-height: 1.8em;
+    margin-left: 30px;
+    color: var(--primary-color-1);
+}
+
+.sort-form {
+    font-family: 'Source Code Pro';
+    text-transform: uppercase;
+    line-height: 1.8em;
+    color: var(--primary-color-1);
+    padding-bottom: 30px;
+}
+
+.sort-form h5 {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.filter {
+    font-family: 'Source Code Pro';
+    text-transform: uppercase;
+    color: var(--primary-color-1);
+    line-height: 1.8em;
+    padding-left: 30px;
+}
+
+.searchbar {
+    opacity: 0;
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 1px solid var(--primary-color-1);
+    padding: 8px 318px 7px 15px;
+    position: relative;
+    top: x0px;
+    left: 110px;
+    margin-bottom: 20px;
+    font-family: 'Source Code Pro';
+    color: var(--primary-color-1);
+    text-transform: uppercase;
+    animation: fadeIn1 1s forwards;
+    animation-delay: 1.66s;
+}
+
+.loadring {
+    animation: loadRing 1s forwards, fadeInOut 1s forwards;
+    animation-timing-function: linear;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -1490px;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadring img {
+    width: 50px;
+}
+
+.footer-logo {
+    position: relative;
+    top: 32px;
 }
 
 .footer-bg {
