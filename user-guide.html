@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FilterableList.js Beginner Guide</title>
+  <style>
+    :root {
+      --bg: #eef3f8;
+      --card: #ffffff;
+      --ink: #13202b;
+      --muted: #516173;
+      --accent: #0f5ea8;
+      --line: #c9d6e2;
+      --code-bg: #0f1720;
+      --code-ink: #e8f1fb;
+      --inline-code-bg: #eaf2fb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+      background: linear-gradient(160deg, #f8fbff 0%, var(--bg) 48%, #e6edf5 100%);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    .layout {
+      max-width: 1000px;
+      padding: 28px 20px 64px;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 22px;
+    }
+
+    nav {
+      position: sticky;
+      top: 16px;
+      align-self: start;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--card);
+      padding: 14px;
+    }
+
+    nav h2 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    nav a {
+      display: block;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 6px 8px;
+      border-radius: 8px;
+      margin-bottom: 4px;
+      border: 1px solid transparent;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      background: #edf5ff;
+      border-color: #bfd6ee;
+    }
+
+    main {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      padding: 28px;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      margin-top: 28px;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 6px;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    pre {
+      background: var(--code-bg);
+      color: var(--code-ink);
+      border: 1px solid #233244;
+      border-radius: 10px;
+      padding: 16px;
+      overflow: auto;
+      font-size: 0.96rem;
+      line-height: 1.55;
+      tab-size: 2;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: var(--inline-code-bg);
+      color: #0d3f72;
+      padding: 0.08rem 0.3rem;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .demo-links {
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px solid #c9dbef;
+      border-radius: 10px;
+      background: #eff6ff;
+    }
+
+    .demo-links a {
+      color: #0d4f8f;
+      font-weight: bold;
+      margin-right: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav>
+      <h2>Guide Menu</h2>
+      <a href="#what">What It Does</a>
+      <a href="#files">Add Plugin Files</a>
+      <a href="#structure">Required Structure</a>
+      <a href="#properties">data-properties</a>
+      <a href="#controls">Control Actions</a>
+      <a href="#inputs">Supported Inputs</a>
+      <a href="#config">Global Configuration</a>
+      <a href="#mistakes">Common Mistakes</a>
+      <a href="#checklist">Quick Checklist</a>
+    </nav>
+
+    <main>
+      <h1>FilterableList.js Beginner Guide</h1>
+      <p>This guide helps you set up and use the plugin with clear copy/paste examples.</p>
+
+    
+
+      <h2 id="what">1) What this plugin does</h2>
+      <ul>
+        <li>Filter items by values such as type, level, or category.</li>
+        <li>Sort items by a selected attribute.</li>
+        <li>Reverse visible item order.</li>
+        <li>Reset everything to the original state.</li>
+        <li>Show a no-matches message when nothing matches.</li>
+      </ul>
+
+      <h2 id="files">2) Add the plugin files</h2>
+      <pre><code>&lt;link rel="stylesheet" href="filterable-list.css" /&gt;
+&lt;script src="filterable-list.js"&gt;&lt;/script&gt;</code></pre>
+      <p>Place the script near the end of the body, or keep it in the head and rely on DOMContentLoaded.</p>
+
+      <h2 id="structure">3) Use the required HTML structure</h2>
+      <p>Required pieces:</p>
+      <ul>
+        <li>A wrapper with class <code>filterable-container</code></li>
+        <li>Controls with elements using <code>data-action</code></li>
+        <li>A list with class <code>filterable-list</code></li>
+        <li>Items with class <code>item</code> and <code>data-properties</code></li>
+      </ul>
+      <pre><code>&lt;div class="filterable-container"&gt;
+  &lt;div class="filter-controls"&gt;
+    &lt;button data-action="reset" class="active"&gt;Reset&lt;/button&gt;
+    &lt;button data-action="filter" data-filter-attribute="type" data-filter-value="painting"&gt;Painting&lt;/button&gt;
+    &lt;button data-action="sort" data-filter-attribute="price"&gt;Sort by Price&lt;/button&gt;
+    &lt;button data-action="reverse"&gt;Reverse&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;ul class="filterable-list"&gt;
+    &lt;li class="item" data-properties="name-Sunrise type-painting level-beginner price-25"&gt;Sunrise&lt;/li&gt;
+    &lt;li class="item" data-properties="name-Cityscape type-photo level-intermediate price-40"&gt;Cityscape&lt;/li&gt;
+    &lt;li class="no-matches-message"&gt;No items match your current filters.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+      <h2 id="properties">4) How data-properties works</h2>
+      <p>Format each item as key-value pairs separated by spaces:</p>
+      <pre><code>name-Sunrise type-painting level-beginner price-25</code></pre>
+      <ul>
+        <li>Matching is case-insensitive.</li>
+        <li>Numbers are parsed as numeric values when possible.</li>
+        <li>Use consistent key names across all items and controls.</li>
+      </ul>
+
+      <h2 id="controls">5) Control actions</h2>
+      <p>Use these values for <code>data-action</code>:</p>
+      <ul>
+        <li><code>filter</code>: needs <code>data-filter-attribute</code> and <code>data-filter-value</code></li>
+        <li><code>sort</code>: usually needs <code>data-filter-attribute</code></li>
+        <li><code>reverse</code>: no extra attributes needed</li>
+        <li><code>reset</code>: no extra attributes needed</li>
+      </ul>
+
+      <h2 id="inputs">6) Supported input types</h2>
+      <ul>
+        <li>Links and buttons use click events.</li>
+        <li>Checkbox and radio use change events.</li>
+        <li>Select uses change events.</li>
+        <li>Text/search input uses input events.</li>
+      </ul>
+
+      <h2 id="config">7) Optional global configuration</h2>
+      <pre><code>&lt;script&gt;
+  configureFilterableList({
+    hiddenClass: 'hidden',
+    activeFilterClass: 'active',
+    enableTransitions: true,
+    transitionDuration: 400
+  });
+&lt;/script&gt;</code></pre>
+
+      <h2 id="mistakes">8) Common beginner mistakes</h2>
+      <ul>
+        <li>Forgetting class <code>filterable-container</code>.</li>
+        <li>Missing class <code>item</code> on list entries.</li>
+        <li>Typing a control attribute key that does not exist in items.</li>
+        <li>Using values that do not exactly match item values.</li>
+      </ul>
+
+      <h2 id="checklist">9) Quick checklist</h2>
+      <ul>
+        <li>Include both plugin files.</li>
+        <li>Create a filterable container with controls and list.</li>
+        <li>Add data-properties on each item.</li>
+        <li>Test reset, filter, sort, and reverse.</li>
+      </ul>
+    </main>
+  </div>
+</body>
+</html>

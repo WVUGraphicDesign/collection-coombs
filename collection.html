@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/960_12_col.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/filterable-list.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -15,7 +16,7 @@
     <nav>
         <div class="container_12">
         <div class="top-banner grid_12">
-            <a href="index.html"><img class="top-logo" src="img/logo.png" alt="Console Catalog logo"></a>
+            <a href="index.html"><img class="top-logo" src="img/logo_purple.svg" alt="Console Catalog logo"></a>
         </div>
         <ul class="grid_12">
             <li><a href="index.html">Home</a></li>
@@ -24,47 +25,48 @@
         </ul>
     </nav>
 
+<div class="filterable-container">
+
 <div class="console-collection">
 
     <section>
         <div class="container_12 collection-page">
         <div class="console-collection-left grid_3">
+
             <form class="sort-form">
                 <h5 class="sort-heading">Sort</h5>
-  
-                <input class="sort" type="radio" id="date-acquired" name="date-acquired" value="date-acquired">
-                <label for="date-acquired">Date acquired</label><br>
 
-                <input class="sort" type="radio" id="date-released" name="date-released" value="date-released">
-                <label for="date-released">Date released</label><br>
+                <div class="filters">
 
-                <input class="sort" type="radio" id="my-rating" name="my-rating" value="my-rating">
-                <label for="my-rating">My rating</label><br>
+                    <ul class="filter-controls">
+                        <li><a data-action="reset" href="#">All</a></li>
+                        <li><a data-action="sort" data-filter-attribute="yearreleased" href="#">Year Released</a></li>
+                        <li><a data-action="sort" data-filter-attribute="myrating" href="#">My Rating</a></li>
+                        <li><a data-action="sort" data-filter-attribute="dateacquired" href="#">Date Acquired</a></li>
+                        <li><a data-action="sort" data-filter-attribute="mostplayed" href="#">Time Played</a></li>
+                        <li><a data-action="sort" data-filter-attribute="maker" href="#">Maker</a></li>   
+                        <li><a data-action="sort" data-filter-attribute="consoletype" href="#">Console Type</a></li>                                     
+                    </ul>
+                </div>
 
-                <input class="sort" type="radio" id="alphabetical" name="alphabetical" value="alphabetical">
-                <label for="alphabetical">Alphabetical</label><br>
-
-                <input class="sort" type="radio" id="maker" name="maker" value="maker">
-                <label for="maker">Maker</label><br>
             </form>
+
             <form class="sort-form">
                 <h5 class="sort-heading">Filter</h5>
 
-                <input class="sort" type="checkbox" id="nintendo" name="nintendo" value="nintendo">
-                <label for="nintendo">Nintendo</label><br>
+                <div class="filters">
 
-                <input class="sort" type="checkbox" id="sony" name="sony" value="sony">
-                <label for="sony">Sony</label><br>
-
-                <input class="sort" type="checkbox" id="microsoft" name="microsoft" value="microsoft">
-                <label for="microsoft">Microsoft</label><br>
-
-                <input class="sort" type="checkbox" id="handheld" name="handheld" value="handheld">
-                <label for="handheld">Handheld</label><br>
-
-                <input class="sort" type="checkbox" id="home-console" name="home-console" value="home-console">
-                <label for="home-console">Home Console</label><br>
-
+                    <ul class="filter-controls">
+                        <li><a data-action="reset" href="#">All</a></li>
+                        <li><a data-action="filter" data-filter-attribute="maker" data-filter-value="nintendo" href="#">Nintendo</a></li>
+                        <li><a data-action="filter" data-filter-attribute="maker" data-filter-value="sony" href="#">Sony</a></li>
+                        <li><a data-action="filter" data-filter-attribute="maker" data-filter-value="microsoft" href="#">Microsoft</a></li>
+                        <li><a data-action="filter" data-filter-attribute="maker" data-filter-value="sega" href="#">Sega</a></li> 
+                        <li><a data-action="filter" data-filter-attribute="maker" data-filter-value="atari" href="#">Atari</a></li>                                       
+                        <li><a data-action="filter" data-filter-attribute="consoletype" data-filter-value="handheld" href="#">Handheld</a></li>
+                        <li><a data-action="filter" data-filter-attribute="consoletype" data-filter-value="homeconsole" href="#">Home Console</a></li>
+                    </ul>
+                </div>
 
             </form>
         </div>
@@ -72,141 +74,143 @@
         <div class="console-collection-right">
             <div class="page-heading"><h1>Collection</h1></div>
             <div class="search grid_3"><input class="searchbar" type="text" placeholder="Search consoles..."></div>
-            <div class="console-grid">
-            <div class="console-square-2">
+            
+            <div class="console-grid filterable-list">
+            
+            <div class="console-square-2 item" data-properties="yearreleased-1977 maker-atari consoletype-homeconsole myrating-1 dateacquired-2016 mostplayed-1">
                 <a href="atari2600.html">
                 <img src="" alt="">
                 <h3>Atari 2600</h3>
                 <h4>Atari, 1977</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-1983 maker-nintendo consoletype-homeconsole myrating-2 dateacquired-2016 mostplayed-2">
                 <a href="nes.html">
                 <img src="" alt="">
                 <h3>NES</h3>
                 <h4>Nintendo, 1983</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-1991 maker-sega consoletype-homeconsole myrating-1 dateacquired-2015 mostplayed-3">
                 <a href="genesis.html">
                 <img src="" alt="">
                 <h3>Sega Genesis</h3>
                 <h4>Sega, 1991</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-1994 maker-sega consoletype-homeconsole myrating-0 dateacquired-2016 mostplayed-0">
                 <a href="saturn.html">
                 <img src="" alt="">
                 <h3>Sega Saturn</h3>
                 <h4>Sega, 1994</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-1994 maker-sony consoletype-homeconsole myrating-3 dateacquired-2015 mostplayed-4">
                 <a href="playstation.html">
                 <img src="img/ps1.png" alt="">
                 <h3>PlayStation</h3>
                 <h4>Sony, 1994</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-1996 maker-nintendo consoletype-homeconsole myrating-4 dateacquired-2011 mostplayed-6">
                 <a href="nintendo64.html">
                 <img src="img/n64.png" alt="">
                 <h3>Nintendo 64</h3>
                 <h4>Nintendo, 1996</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-1998 maker-nintendo consoletype-handheld myrating-2 dateacquired-2010 mostplayed-3">
                 <a href="gbc.html">
                 <img src="img/gbc.png" alt="">
                 <h3><span>Gameboy Color</span></h3>
                 <h4>Nintendo, 1998</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-1999 maker-sega consoletype-homeconsole myrating-3 dateacquired-2017 mostplayed-4">
                 <a href="dreamcast.html">
                 <img src="img/dreamcast.png" alt="">
                 <h3>Dreamcast</h3>
                 <h4>Sega, 1999</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2001 maker-nintendo consoletype-homeconsole myrating-4 dateacquired-2011 mostplayed-7">
                 <a href="gamecube.html">
                 <img src="img/gamecube.png" alt="">
                 <h3>Gamecube</h3>
                 <h4>Nintendo, 2001</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2001 maker-nintendo consoletype-homeconsole myrating-4 dateacquired-2011 mostplayed-7">
                 <a href="gamecube2.html">
                 <img src="img/gamecube2.png" alt="">
                 <h3>Gamecube</h3>
                 <h4>Nintendo, 2001</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2001 maker-sony consoletype-homeconsole myrating-5 dateacquired-2015 mostplayed-8">
                 <a href="ps2.html">
                 <img src="img/ps2.png" alt="">
                 <h3>PlayStation 2</h3>
                 <h4>Sony, 2001</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2003 maker-nintendo consoletype-handheld myrating-3 dateacquired-2020 mostplayed-2">
                 <a href="gbasp1.html">
                 <img src="img/gbasp1.png" alt="">
                 <h3><span>Gameboy Advance</span></h3>
                 <h4>Nintendo, 2003</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2003 maker-nintendo consoletype-handheld myrating-3 dateacquired-2011 mostplayed-5">
                 <a href="gbasp2.html">
                 <img src="img/gbasp2.png" alt="">
                 <h3><span>Gameboy Advance</span></h3>
                 <h4>Nintendo, 2003</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2004 maker-nintendo consoletype-handheld myrating-4 dateacquired-2019 mostplayed-6">
                 <a href="ds.html">
                 <img src="img/ds.png" alt="">
                 <h3>DS</h3>
                 <h4>Nintendo, 2004</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2006 maker-nintendo consoletype-handheld myrating-4 dateacquired-2024 mostplayed-3">
                 <a href="dslite.html">
                 <img src="img/dslite.png" alt="">
                 <h3>DS Lite</h3>
                 <h4>Nintendo, 2006</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2005 maker-microsoft consoletype-homeconsole myrating-5 dateacquired-2011 mostplayed-9">
                 <a href="xbox360.html">
                 <img src="" alt="">
                 <h3>Xbox 360</h3>
                 <h4>Microsoft, 2005</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2006 maker-nintendo consoletype-homeconsole myrating-6 dateacquired-2007 mostplayed-10">
                 <a href="wii.html">
                 <img src="" alt="">
                 <h3>Wii</h3>
                 <h4>Nintendo, 2006</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2009 maker-nintendo consoletype-handheld myrating-5.5 dateacquired-2009 mostplayed-10">
                 <a href="dsi.html">
                 <img src="img/dsi.png" alt="">
                 <h3>DSI</h3>
                 <h4>Nintendo, 2009</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2011 maker-nintendo consoletype-handheld myrating-5 dateacquired-2011 mostplayed-10">
                 <a href="3ds.html">
                 <img src="img/3ds.png" alt="">
                 <h3>3DS</h3>
                 <h4>Nintendo, 2011</h4>
                 </a>
             </div>
-            <div class="console-square-2">
+            <div class="console-square-2 item" data-properties="yearreleased-2012 maker-nintendo consoletype-homeconsole myrating-7 dateacquired-2012 mostplayed-11">
                 <a href="wiiu.html">
                 <img src="img/wiiu.png" alt="">
                 <h3>Wii U</h3>
@@ -215,15 +219,17 @@
             </div>
             </div>
         </div>
-        </div>
     </section>
 
 </div>
 
+</div>
+
+
     <footer>
         <div class="container_12">
             <div class="footer-bg grid_12">
-                <img class="footer-logo" src="img/logo2.png">
+                <img class="footer-logo" src="img/logo_white.svg">
                 <ul class="footer-elements grid_2 prefix_4">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="collection.html">Collection</a></li>
@@ -237,4 +243,8 @@
 
 
 </body>
+
+<script src="js/filterable-list.js">
+</script>
+
 </html>
