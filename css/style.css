@@ -573,6 +573,7 @@ nav ul li {
     line-height: 1.5em;
     font-family: 'Metropolis';
     border-radius: 25px;
+    border: #fff 2px solid;
 }
 
 .page-heading {
@@ -722,10 +723,59 @@ nav ul li {
 
 .about-header {
     background-color: var(--primary-color-1);
+    font-family: 'HelveticaNeue';
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 24px;
+    padding: 20px;
+    border: #5d00bf 1px solid;
+    margin-top: -16px;
 }
 
-.about-header h1 {
-    
+.vance-child {
+    border-radius: 15px;
+    border: #fff 2px solid;
+    position: relative;
+    top: -30px;
+    left: 150px;
+}
+
+.ptb1 {
+    position: relative;
+    top: -60px;
+    left: 300px
+}
+
+.ptb2 {
+    position: relative;
+    top: -80px;
+    left: 500px
+}
+
+.ptb3 {
+    position: relative;
+    top: -130px;
+    left: 400px
+}
+
+.vance-adult {
+    border-radius: 15px;
+    border: #fff 2px solid;
+    position: relative;
+    top: -105px;
+    left: 300px;
+}
+
+.yellow-thing {
+    z-index: -5;
+    position: relative;
+    top: -1440px;
+    left: -100px;
+    width: 1200px;
+}
+
+.yb-about {
+    margin-top: -1450px;
 }
 
 .footer-logo {
