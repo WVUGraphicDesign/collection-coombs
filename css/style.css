@@ -315,11 +315,27 @@ nav ul li {
 }
 
 .console-background.ds {
-    background-color: #c3c3ca;
+    background-color: #d8d8e7;
 }
 
 .console-background.gbasp2 {
     background-color: #ff9696;
+}
+
+.console-background.gbasp1 {
+    background-color: #f3e4ff;
+}
+
+.console-background.n3ds {
+    background-color: #c21818;
+}
+
+.console-background.dsi {
+    background-color: #ffa600;
+}
+
+.console-background.gbc {
+    background-color: #d9a1d1;
 }
 
 .console-image img {
@@ -702,6 +718,14 @@ nav ul li {
     font-family: 'Source Code Pro';
     font-weight: 800;
     transition: 0s;
+}
+
+.about-header {
+    background-color: var(--primary-color-1);
+}
+
+.about-header h1 {
+    
 }
 
 .footer-logo {
