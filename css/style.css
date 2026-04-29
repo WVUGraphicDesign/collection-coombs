@@ -36,7 +36,7 @@
 @keyframes fadeInDown {
     0% {
         opacity:0;
-        transform: translateY(-100px);
+        transform: translateY(-50px);
     }
 
     50% {
@@ -315,7 +315,7 @@ nav ul li {
     width: 295px;
     height: 390px;
     z-index: -5;
-    margin-top: -89.3px;
+    margin-top: -89.5px;
     margin-bottom: 70px;
 }
 
