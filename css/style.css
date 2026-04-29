@@ -147,6 +147,12 @@ nav ul li {
     transition: .5s;
 }
 
+.home-second-fade {
+    opacity: 0;
+    animation: fadeIn1 3s forwards;
+    animation-delay: 1.66s;
+}
+
 .carousel img:hover {
     scale: 1.5;
 }
@@ -226,7 +232,7 @@ nav ul li {
     margin: 20px auto;
 }
 
-.yellow-button a {
+.yellow-button {
     text-decoration: none;
     color: var(--primary-color-1);
     text-transform: uppercase;
@@ -250,7 +256,7 @@ nav ul li {
     margin: 20px auto 60px auto;
 }
 
-.purple-button a {
+.purple-button {
     text-decoration: none;
     color: var(--primary-color-2);
     text-transform: uppercase;
@@ -259,9 +265,6 @@ nav ul li {
 
 .purple-button:hover {
     background-color: var(--primary-color-2);
-}
-
-.purple-button:hover a {
     color: var(--primary-color-1);
 }
 
@@ -337,6 +340,15 @@ nav ul li {
 .console-background.gbc {
     background-color: #d9a1d1;
 }
+
+.console-background.wii {
+    background-color: #71cbff;
+}
+
+.console-background.atari {
+    background-color: #a67032;
+}
+
 
 .console-image img {
     opacity: 0;
