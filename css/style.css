@@ -679,7 +679,7 @@ nav ul li {
     border: 1px solid var(--primary-color-1);
     padding: 8px 318px 7px 15px;
     position: relative;
-    top: x0px;
+    top: 0px;
     left: 110px;
     margin-bottom: 20px;
     font-family: 'Source Code Pro';
