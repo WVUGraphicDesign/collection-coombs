@@ -153,6 +153,7 @@ nav ul li {
     animation-delay: 1.66s;
 }
 
+
 .carousel img:hover {
     scale: 1.5;
 }
@@ -170,6 +171,7 @@ nav ul li {
     justify-content: center;
     text-align: center;
     margin-bottom: 50px;
+    padding-left: 70px;
 }
 
 .section-1 h1 {
@@ -217,6 +219,10 @@ nav ul li {
 .section-2 p {
     font-family: 'Metropolis';
     color: #fff;
+}
+
+.section-2-p {
+    margin-bottom: 30px;
 }
 
 .yellow-button {
