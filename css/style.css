@@ -37,7 +37,7 @@
 @keyframes fadeInDown {
     0% {
         opacity:0;
-        transform: translateY(-50px);
+        transform: translateY(-30px);
     }
 
     50% {
@@ -356,6 +356,11 @@ nav ul li {
     background-color: #a67032;
 }
 
+.console-background.xbox {
+    background-color: #9ddc4a;
+}
+
+
 
 .console-image img {
     opacity: 0;
@@ -365,7 +370,7 @@ nav ul li {
     left: -60px;
     margin-bottom: -400px;
     animation: fadeInDown 4s forwards, bounce1 4s infinite;
-    animation-delay: 1.33s;
+    animation-delay: 1.33s, 1.35s;
     transition: 1s;
 }
 
